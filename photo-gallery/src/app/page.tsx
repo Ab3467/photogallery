@@ -4,7 +4,7 @@ import { CldImage } from 'next-cloudinary';
 import { CldUploadButton } from 'next-cloudinary';
 import {useState} from "react"
 
-type UploadResult ={
+export type UploadResult ={
 info:{
   public_id :string
 },
@@ -28,7 +28,7 @@ export default function Home() {
           height="300"
           src={imgId}
           sizes="100vw"
-          blurFaces
+          
           // tint="70:blue:green:purple"
           alt="Description of my image"
         />

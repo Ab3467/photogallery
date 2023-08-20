@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
         "cloudinary"
+    ],
+    "cSpell.ignoreWords": [
+        "tailwindcss"
     ]
 }
