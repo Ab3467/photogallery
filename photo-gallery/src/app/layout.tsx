@@ -61,7 +61,7 @@ export default function RootLayout({
             <div className="ml-auto flex items-center space-x-4">
               <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarFallback></AvatarFallback>
               </Avatar>
             </div>
           </div>
