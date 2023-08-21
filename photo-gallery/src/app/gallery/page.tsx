@@ -5,18 +5,21 @@ import { Cloudinary } from './cloudinary';
 import cloudinary from 'cloudinary';
 
 
-type SearchResult={
-  public_id:string
-
+export type SearchResult={
+  public_id:string;
+  tags:string[];
 }
 
 export default async function GalleryPage() {
   const results =(await cloudinary.v2.search
-    .expression('resource_type:image AND tags=kitten AND uploaded_at>1d AND bytes>1m')
+    .expression('resource_type:image ')
     .sort_by('created_at', 'desc')
+    .with_field("tags")
     .max_results(10)
     .execute()) as {resources: SearchResult[]};
-    // console.log(results)
+
+    
+    console.log(results)
     
   return (
     <section>
@@ -31,7 +34,8 @@ export default async function GalleryPage() {
           {results.resources.map(result=>(
             <Cloudinary 
             key={result.public_id}
-            src={result.public_id}
+            ImageData={result}
+            
             width="400"
             height="300"
             alt="an image of something"
