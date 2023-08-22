@@ -1,15 +1,15 @@
 "use client"
 
-import { Heart } from "@/components/ui/icons/heart"
+import { Heart } from "@/components/icons/heart"
 import { CldImage } from "next-cloudinary"
 import cloudinary from 'cloudinary';
 import {Action} from "./actions"
 import { useState } from "react";
 import { SearchResult } from './page';
-import { FullHeart } from '../../components/ui/icons/FullHeart';
+import { FullHeart } from '../../components/icons/FullHeart';
 
 
-export function Cloudinary(props: any & {ImageData: SearchResult})  {
+export function Cloudinary(props: any & {ImageData: SearchResult; path:string})  {
 
     const [transition, startTransition]=useState();
     const { ImageData }=props;
@@ -22,7 +22,7 @@ export function Cloudinary(props: any & {ImageData: SearchResult})  {
                   <FullHeart
                       onClick={() => {
                           startTransition(() => {
-                              Action(ImageData.public_id,false);
+                              Action(ImageData.public_id,false,props.path);
                           });
 
 
@@ -33,7 +33,7 @@ export function Cloudinary(props: any & {ImageData: SearchResult})  {
               <Heart 
               onClick={()=>{
                 startTransition(()=>{
-                    Action(ImageData.public_id,true);
+                    Action(ImageData.public_id,true,props.path);
                 });
                  
                       
