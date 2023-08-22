@@ -1,9 +1,12 @@
 {
     "cSpell.words": [
         "cloudinary",
+        "clsx",
         "lucide",
         "revelidate",
-        "shadcn"
+        "shadcn",
+        "Unheart",
+        "unhearted"
     ],
     "cSpell.ignoreWords": [
         "tailwindcss"
